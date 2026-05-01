@@ -866,6 +866,11 @@ unsigned int CBUSConfig::freeSRAM(void) {
   char top;
   return &top - reinterpret_cast<char*>(sbrk(0));
 #endif
+
+#ifdef ARDUINO_ARCH_STM32
+  char top;
+  return &top - reinterpret_cast<char*>(sbrk(0));
+#endif
 }
 
 //
